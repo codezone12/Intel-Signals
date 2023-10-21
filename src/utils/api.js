@@ -9,7 +9,7 @@ export const api = async (route, method, body, token) => {
     method,
     body: JSON.stringify(body),
     headers,
-    // credentials: 'include',
+    credentials: 'include',
   });
   const data = await response.json();
   return data;
