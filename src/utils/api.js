@@ -8,7 +8,8 @@ export const api = async (route, method, body, token) => {
   const response = await fetch(`${api_url}/api/${route}`, {
     method,
     body: JSON.stringify(body),
-    headers
+    headers,
+    credentials : true
   });
   const data = await response.json();
   return data;
