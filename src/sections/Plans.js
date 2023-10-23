@@ -31,7 +31,11 @@ const Plans = () => {
   const { address } = useAccount();
 
   const associatePlanToUser = async (plan_id) => {
-    const body = { plan_id, walletAddress: address };
+    let userId
+    if (user && user._id) {
+      userId = user._id
+    }
+    const body = { plan_id, walletAddress: address, userId };
     const response = await api("purchase-plan", "PUT", body);
     dispatch(setPlan(plan_id));
     if (response.success) {
