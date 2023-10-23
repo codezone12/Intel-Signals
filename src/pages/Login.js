@@ -9,11 +9,12 @@ import {
   AiOutlineEyeInvisible
 } from "react-icons/ai";
 import { useDispatch } from "react-redux";
-import { setToken, setUser } from "../store/user";
+import { setPlan, setToken, setUser } from "../store/user";
 import { toast } from "react-hot-toast";
 import decodeToken from "jwt-decode";
 
 const Login = () => {
+
   const location = useLocation();
   const isSignUp = location?.state?.signup;
   const [isLogin, setIsLogin] = useState(true);
@@ -52,6 +53,9 @@ const Login = () => {
         if (response.success) {
           dispatch(setToken({ token: response.data.token }));
           dispatch(setUser(decodeToken(response.data.token)));
+          if(response.data.purchased_plan){
+            dispatch(setPlan(response.data.purchased_plan));
+          }
           toast.success("Login Successfull");
           navigate("/panel/dashboard");
         }
