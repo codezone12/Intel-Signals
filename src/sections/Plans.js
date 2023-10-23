@@ -37,10 +37,11 @@ const Plans = () => {
     }
     const body = { plan_id, walletAddress: address, userId };
     const response = await api("purchase-plan", "PUT", body);
-    dispatch(setPlan(plan_id));
+
     if (response.success) {
       localStorage.setItem('walletAddress', address)
       if (token) {
+        dispatch(setPlan(plan_id));
         navigate("/panel/dashboard");
       } else {
         navigate('/login')
