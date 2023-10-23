@@ -33,6 +33,7 @@ const Plans = () => {
   const associatePlanToUser = async (plan_id) => {
     const body = { plan_id, walletAddress: address };
     const response = await api("purchase-plan", "PUT", body);
+    dispatch(setPlan(plan_id));
     if (response.success) {
       localStorage.setItem('walletAddress', address)
       if (token) {
