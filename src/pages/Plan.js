@@ -31,11 +31,16 @@ const Plan = () => {
   const { token } = useSelector((state) => state.user);
 
   const associatePlanToUser = async (plan_id) => {
-    const body = { plan_id };
-    const response = await api("purchase-plan", "PUT", body, token);
+    const body = { plan_id, walletAddress: address };
+    const response = await api("purchase-plan", "PUT", body);
     if (response.success) {
+      localStorage.setItem('walletAddress', address)
       dispatch(setPlan(plan_id));
-      navigate("/panel/dashboard");
+      if (token) {
+        navigate("/panel/dashboard");
+      } else {
+        navigate('/login')
+      }
     }
   };
 
@@ -323,7 +328,7 @@ const Plan = () => {
               <div className="mt-auto  flex justify-center">
                 <button
                   className=" w-3/4 py-2 border-2 font-semibold text-white rounded-full hover:bg-gray-100 hover:text-[#102b59] transition duration-300"
-                  onClick={() => (buyPackage(0, 0), setplan_data(0))}
+                  // onClick={() => (buyPackage(0, 0), setplan_data(0))}
                 >
                   {plan_data == 0
                     ? spinner

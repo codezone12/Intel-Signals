@@ -31,21 +31,20 @@ const Plans = () => {
   const { address } = useAccount();
 
   const associatePlanToUser = async (plan_id) => {
-    const body = { plan_id };
-    const response = await api("purchase-plan", "PUT", body, token);
+    const body = { plan_id, walletAddress: address };
+    const response = await api("purchase-plan", "PUT", body);
+    // dispatch(setPlan(plan_id));
     if (response.success) {
-      dispatch(setPlan(plan_id));
-      navigate("/panel/dashboard");
+      localStorage.setItem('walletAddress', address)
+      if (!token) {
+        navigate('/login')
+      }
     }
   };
 
   const webSupply = new Web3("https://bsc-testnet.publicnode.com");
   const buyPackage = async (plan, amount) => {
-    if (!token) {
-      toast.error("Please login to proceed further");
-      navigate("/login");
-      return;
-    }
+
     const result = await Swal.fire({
       title: "Do you have INSIG token",
       showDenyButton: true,

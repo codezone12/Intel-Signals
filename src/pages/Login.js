@@ -36,11 +36,13 @@ const Login = () => {
       let password = e.target[2].value;
       let confirmPassword = e.target[3]?.value;
       localStorage.setItem("email", email);
+      let walletAddress = localStorage.getItem('walletAddress')
       let data = {
         name,
         email,
         password,
-        user_type: "1"
+        user_type: "1",
+        walletAddress
       };
 
       if (isLogin) {
