@@ -328,7 +328,7 @@ const Plan = () => {
               <div className="mt-auto  flex justify-center">
                 <button
                   className=" w-3/4 py-2 border-2 font-semibold text-white rounded-full hover:bg-gray-100 hover:text-[#102b59] transition duration-300"
-                  // onClick={() => (buyPackage(0, 0), setplan_data(0))}
+                  onClick={() => (buyPackage(0, 0), setplan_data(0))}
                 >
                   {plan_data == 0
                     ? spinner
