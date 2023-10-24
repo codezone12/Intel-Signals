@@ -53,9 +53,6 @@ const Login = () => {
         if (response.success) {
           dispatch(setToken({ token: response.data.token }));
           dispatch(setUser(decodeToken(response.data.token)));
-          if(response.data.purchased_plan){
-            dispatch(setPlan(response.data.purchased_plan));
-          }
           toast.success("Login Successfull");
           navigate("/panel/dashboard");
         }

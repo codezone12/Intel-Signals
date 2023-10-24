@@ -20,6 +20,7 @@ import { api } from "../utils/api";
 import { useDispatch, useSelector } from "react-redux";
 import { setPlan, setUser } from "../store/user";
 import { ALL_PACKAGES } from "../utils/contants";
+import { CircularProgress } from "@mui/material";
 
 const Plan = () => {
   const [isDiscountPlan, setIsDisountPlan] = useState(true);
@@ -332,7 +333,9 @@ const Plan = () => {
                 >
                   {plan_data == 0
                     ? spinner
-                      ? "Loading..."
+                      ? (
+                      <CircularProgress sx={{color : 'black'}} size={27} />
+                    )
                       : "Buy Now"
                     : "Buy Now"}
                 </button>
@@ -383,7 +386,9 @@ const Plan = () => {
                 >
                   {plan_data == 1
                     ? spinner
-                      ? "Loading..."
+                      ? (
+                      <CircularProgress sx={{color : 'black'}} size={27} />
+                    )
                       : "Buy Now"
                     : "Buy Now"}
                 </button>
@@ -437,7 +442,9 @@ const Plan = () => {
                 >
                   {plan_data == 2
                     ? spinner
-                      ? "Loading..."
+                      ? (
+                      <CircularProgress sx={{color : 'black'}} size={27} />
+                    )
                       : "Buy Now"
                     : "Buy Now"}
                 </button>
@@ -491,7 +498,9 @@ const Plan = () => {
               >
                 {plan_data == 3
                   ? spinner
-                    ? "Loading..."
+                    ? (
+                      <CircularProgress sx={{color : 'black'}} size={27} />
+                    )
                     : "Buy Now"
                   : "Buy Now"}
               </button>
@@ -540,7 +549,9 @@ const Plan = () => {
               >
                 {plan_data == 4
                   ? spinner
-                    ? "Loading..."
+                    ? (
+                      <CircularProgress sx={{color : 'black'}} size={27} />
+                    )
                     : "Buy Now"
                   : "Buy Now"}
               </button>

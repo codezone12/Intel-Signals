@@ -20,6 +20,7 @@ import { setPlan, setUser } from "../store/user";
 import { ALL_PACKAGES } from "../utils/contants";
 import * as Swal from "sweetalert2";
 import { connectorsForWallets } from "@rainbow-me/rainbowkit";
+import { CircularProgress } from "@mui/material";
 
 const Plans = () => {
   const { user } = useSelector((state) => state.user);
@@ -302,7 +303,9 @@ const Plans = () => {
               >
                 {plan_data == 0
                   ? spinner
-                    ? "Loading..."
+                    ? (
+                      <CircularProgress sx={{color : 'black'}} size={27} />
+                    )
                     : "Buy Now"
                   : "Buy Now"}
               </button>
@@ -351,7 +354,9 @@ const Plans = () => {
               >
                 {plan_data == 1
                   ? spinner
-                    ? "Loading..."
+                    ? (
+                      <CircularProgress sx={{color : 'black'}} size={27} />
+                    )
                     : "Buy Now"
                   : "Buy Now"}
               </button>
@@ -403,7 +408,9 @@ const Plans = () => {
               >
                 {plan_data == 2
                   ? spinner
-                    ? "Loading..."
+                    ? (
+                      <CircularProgress sx={{color : 'black'}} size={27} />
+                    )
                     : "Buy Now"
                   : "Buy Now"}
               </button>
@@ -465,7 +472,9 @@ const Plans = () => {
               >
                 {plan_data == 3
                   ? spinner
-                    ? "Loading..."
+                    ? (
+                      <CircularProgress sx={{color : 'black'}} size={27} />
+                    )
                     : "Buy Now"
                   : "Buy Now"}
               </button>
@@ -514,7 +523,9 @@ const Plans = () => {
               >
                 {plan_data == 4
                   ? spinner
-                    ? "Loading..."
+                    ? (
+                      <CircularProgress sx={{color : 'black'}} size={27} />
+                    )
                     : "Buy Now"
                   : "Buy Now"}
               </button>
